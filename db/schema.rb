@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_020559) do
+ActiveRecord::Schema.define(version: 2020_11_02_175908) do
 
   create_table "consoles", force: :cascade do |t|
     t.string "name"
@@ -19,13 +19,12 @@ ActiveRecord::Schema.define(version: 2020_11_02_020559) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.integer "release_year"
-    t.string "console"
     t.string "genre"
     t.string "description"
     t.string "developer"
-    t.boolean "completed"
     t.integer "user_id"
     t.integer "console_id"
+    t.boolean "complete", default: false
   end
 
   create_table "users", force: :cascade do |t|

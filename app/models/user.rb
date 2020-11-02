@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-
-  has_many :games
-  has_many :consoles, through: :games
+    has_many :games
+    has_many :consoles, through: :games
+      validates :username, uniqueness: true
+      validates :email, presence: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
