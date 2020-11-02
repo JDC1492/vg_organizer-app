@@ -6,4 +6,4 @@
 #     t.string "developer"
 #     t.boolean "completed"
 
-Game.create(title: , )
+Game.create(title: , ) 

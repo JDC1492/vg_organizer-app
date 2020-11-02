@@ -19,7 +19,7 @@ class ConsolesController < ApplicationController
     end
 
 
-    def edit
+    def edit 
 
     end
 
