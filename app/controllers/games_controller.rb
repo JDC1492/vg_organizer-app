@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     end
 
     def show
-        
+        @game = Game.find_by_id(params[:id])
     end
 
   
@@ -21,6 +21,7 @@ class GamesController < ApplicationController
 
 
     def edit
+        @game = Game.find_by_id(params[:id])
 
     end
 
@@ -31,6 +32,7 @@ class GamesController < ApplicationController
    
 
     def destroy
+        @game = Game.find_by_id(params[:id])
         
     end
 

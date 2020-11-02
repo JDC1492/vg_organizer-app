@@ -5,7 +5,7 @@ class ConsolesController < ApplicationController
     end
 
     def show
-        
+        @console = Console.find_by_id(params[:id])
     end
 
   
@@ -20,7 +20,7 @@ class ConsolesController < ApplicationController
 
 
     def edit 
-
+        @console = Console.find_by_id(params[:id])
     end
 
     def update
@@ -30,7 +30,8 @@ class ConsolesController < ApplicationController
    
 
     def destroy
-        
+        @console = Console.find_by_id(params[:id])
+        @console.destroy
     end
 
 end
