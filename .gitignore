@@ -40,4 +40,4 @@
 yarn-debug.log*
 .yarn-integrity
 
-devise.rb
+/config/intitializers/devise.rb
