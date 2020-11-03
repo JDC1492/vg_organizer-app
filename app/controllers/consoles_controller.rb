@@ -1,7 +1,7 @@
 class ConsolesController < ApplicationController
 
     def index
-        @consoles = Console.all
+        @consoles = current_user.consoles
     end
 
     def show
@@ -11,7 +11,7 @@ class ConsolesController < ApplicationController
   
     
     def new
-        
+        @console = Console.new
     end
 
     def create

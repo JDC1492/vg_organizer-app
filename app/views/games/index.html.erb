@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+<h1>Welcome, <%= current_user.username %>! </h1>
+<% end %>
+<br>
+
+<h3> Your game listings: </h3>
+<div class="list">
+<ul>
+    <% @games.each do |game| %>
+    <li><%= link_to game.title, game_path(game) %></li><br>
+</ul>
+</div>
+<% end %>
+
+<h3> Your console listings: </h3>
+<div class="list">
+<ul>
+    <% @consoles.distinct.each do |c| %>
+    <li><%= link_to c.name, console_path(c) %></li><br>
+</ul>
+</div>
+<% end %>
+
+<% if user_signed_in? %>
+<br><%= link_to "Log Out", destroy_user_session_path %> 
+<% end %>  

@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
 
-
     def index
-        @games = Game.all
+        @games = current_user.games
+        @consoles = current_user.consoles
     end
 
     def show
@@ -13,10 +13,11 @@ class GamesController < ApplicationController
     
     def new
         
+        @game = Game.new
     end
 
     def create
-        
+        binding.pry
     end
 
 
@@ -37,4 +38,14 @@ class GamesController < ApplicationController
     end
 
 
+    private
+    
+    def set_game
+        @game = Game.find_by_id(params[:id])
+    end
+        
+    def game_params
+        params.require(:game).permit(:title, :release_year, :genre,
+             :description, :dveloper, :complete)
+    end
 end

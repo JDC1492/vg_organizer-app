@@ -1,0 +1,8 @@
+<h2>You have "<%= @game.title %>" on the <%= @game.console.name %>.  This game was developed by <%= @game.developer %>.</h2>
+<h2>What's It About?</h2>
+<ul>
+<li><%= @game.description %></li>
+</ul>
+<h3>Release Year: <%= @game.release_year %></h3>
+<h3>The genre of this game classifies as a(n) <%= @game.genre %>.
+<h3>Is it Complete? <%= @game.complete ? "Yes" : "No" %></h3>
