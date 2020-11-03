@@ -17,7 +17,14 @@ class GamesController < ApplicationController
     end
 
     def create
-        binding.pry
+        # binding.pry
+        @game = Game.new(game_params)
+        if @game.valid?
+            @game.save
+            redirect_to game_path(@game)
+        else 
+            render 'new'
+        end
     end
 
 
