@@ -1,25 +1,48 @@
+<div>
 <h1>New game? Add it to the collection!!<h1>
+</div>
+<div>
 <%= form_with model: @game, local: true  do |f| %>
 <%= f.label :title, "Game Title" %>
-<%= f.text_field :title, @game.title %>
+<%= f.text_field :title %>
+</div>
 <br>
+<div>
 <%= f.label :release_year, "Year of Release" %>
-<%= f.text_field :release_year, @game.release_year %>
+<%= f.text_field :release_year %>
+</div>
 <br>
+<div>
 <%= f.label :description, "What's it About?" %>
-<%= f.text_field :description, @game.description %>
+<%= f.text_area :description %>
+</div>
 <br>
+<div>
 <%= f.label :genre, "Genre" %>
-<%= f.text_field :genre, @game. %>
+<%= f.text_field :genre %>
+</div>
 <br>
+<div>
 <%= f.label :developer, "Developer" %>
-<%= f.text_field :developer, @game. %>
+<%= f.text_field :developer %>
+</div>
 <br>
+<div>
 <%= f.label :complete, "Finished?" %>
-<%= f.check_box :complete, @game. %>
+<%= f.check_box :complete %>
 <br>
-
-<!--  -->
-
+        <%= f.label :console, "What console to you own this game for?" %>
+            <%= f.collection_select :console_ids, @console, :id, :name %>
+            <%= f.fields_for :console, @game.build_console do |console_fields| %>
+            <%= console_fields.text_field :name %>
+        <% end %>
 <%= f.submit %>
 <% end %>
+</div>
+
+<%if @game.errors.any? %>
+    <% @game.errors.full_messages.each do |error| %>
+        <%= error %>
+    <% end %>
+<% end %>
+

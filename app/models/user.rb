@@ -20,6 +20,14 @@ class User < ApplicationRecord
           end
         end
 
+
+        # def console_attributes=(console_attributes)
+        #   console_attributes.values.each do |console_attribute|
+        #       console = Console.find_or_create_by(console_attribute)
+        #       self.consoles << console
+        #   end
+        #   end
+
 end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

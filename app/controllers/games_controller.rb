@@ -10,22 +10,21 @@ class GamesController < ApplicationController
         end
     end
 
-
     def show
         if !@game
             redirect_to games_path
         end
     end
-
-  
     
     def new
+        # binding.pry
         @game = Game.new
+        @console = current_user.consoles.uniq
     end
 
     def create
         @game = Game.new(game_params)
-        binding.pry
+        # binding.pry
         if @game.valid?
             @game.save
             redirect_to game_path(@game)
@@ -33,7 +32,6 @@ class GamesController < ApplicationController
             render 'new'
         end
     end
-
 
     def edit
         # @game = Game.find_by_id(params[:id])
@@ -44,8 +42,12 @@ class GamesController < ApplicationController
 
     def update
         if @game
-            @game.update(game_params) 
-            redirect_to game_path(@game)
+            @game.update(game_params)
+             if @game.errors.any?
+                render 'edit'
+                else
+                    redirect_to game_path(@game)
+                end
         else 
             render 'edit'
         end
@@ -54,7 +56,8 @@ class GamesController < ApplicationController
    
 
     def destroy
-        # @game = Game.find_by_id(params[:id])  
+        @game.destroy 
+         redirect_to games_path
     end
 
 
@@ -67,6 +70,6 @@ class GamesController < ApplicationController
         
     def game_params
         params.require(:game).permit(:title, :release_year, :genre,
-             :description, :developer, :complete)
+        :description, :developer, :complete, console_ids:[], consoles_attributes:[:name])
     end
 end

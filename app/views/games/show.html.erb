@@ -1,8 +1,22 @@
 <h2>You have <%= @game.title %> on the <%= @game.console.name %>.  This game was developed by <%= @game.developer %>.</h2><br>
-<h2>What's <%= @game.title %> About?</h2><br>
+<h2>What's <%= @game.title %> About?</h2>
+<div>
 <ul>
 <li><%= @game.description %></li>
 </ul>
-<p>Release Year: <%= @game.release_year %></p>
-<p>Genre: <%= @game.genre %>.</p>
-<p>Is it Complete? <%= @game.complete ? "Yes" : "No" %></p>
+</div>
+<h4>Release Year:</h4><p> - <%= @game.release_year %> </p>
+<h4>Genre:</h4><p> - <%= @game.genre %>. </p>
+<h4>Is it Complete?</h4><p> - <%= @game.complete ? "Yes" : "No" %> </p>
+<br>
+
+<div>
+<h4><%= link_to "Edit Game", edit_user_game_path(current_user, @game) %></h4>
+<h4><%= link_to "Delete Game", @game, method: :delete, data:{confirm: "Hold your Horses! Do you really want to delete this game?"} %></h4>
+<h4><%= link_to "Back", user_games_path(current_user) %></h4>
+</div>
+
+
+
+
+

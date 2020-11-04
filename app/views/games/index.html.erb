@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
     <h1>Welcome, <%= current_user.username %>!</h1>
+
 <% end %>
 <br>
 
@@ -21,6 +22,5 @@
 </div>
 <% end %>
 
-<% if user_signed_in? %>
+<h4><%= link_to "New Game?",  new_user_game_path(current_user) %></h4>
 <br><%= link_to "Log Out", destroy_user_session_path, method: :delete %> 
-<% end %>  
