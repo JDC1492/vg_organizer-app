@@ -19,7 +19,7 @@ class GamesController < ApplicationController
     def new
         # binding.pry
         @game = Game.new
-        @console = current_user.consoles.uniq
+        @console = current_user.consoles.order('name ASC').uniq
     end
 
     def create
@@ -70,6 +70,6 @@ class GamesController < ApplicationController
         
     def game_params
         params.require(:game).permit(:title, :release_year, :genre,
-        :description, :developer, :complete, console_ids:[], consoles_attributes:[:name])
+        :description, :developer, :complete, console_id:[], consoles_attributes:[:name])
     end
 end

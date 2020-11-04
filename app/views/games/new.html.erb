@@ -31,8 +31,8 @@
 <%= f.label :complete, "Finished?" %>
 <%= f.check_box :complete %>
 <br>
-        <%= f.label :console, "What console to you own this game for?" %>
-            <%= f.collection_select :console_ids, @console, :id, :name %>
+        <%= f.label :console, "On what console do you own this game?" %>
+            <%= f.collection_select :console_id, @console, :id, :name, {include_blank: 'Select a console'} %>
             <%= f.fields_for :console, @game.build_console do |console_fields| %>
             <%= console_fields.text_field :name %>
         <% end %>
