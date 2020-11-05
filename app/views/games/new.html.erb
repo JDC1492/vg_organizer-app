@@ -29,17 +29,14 @@
     <br>
 <div>
         <%= f.label :console, "On what console do you own this game?" %>
-            <%= f.collection_select :console_id, @console, :id, :name, {include_blank: 'Select a console'} %>
-            <%= f.fields_for :consoles, @game.build_console do |console_fields| %>
+            <%= f.collection_select :console_ids, @console, :id, :name, {include_blank: 'Select a console'} %>
+            <%= f.fields_for :console, @game.build_console do |console_fields| %>
             <%= console_fields.text_field :name %>
         <% end %>
 <%= f.submit %>
 <% end %>
 </div>
 
-<%if @game.errors.any? %>
-    <% @game.errors.full_messages.each do |error| %>
-        <%= error %>
-    <% end %>
-<% end %>
+
+
 

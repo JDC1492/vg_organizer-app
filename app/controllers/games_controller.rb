@@ -19,13 +19,14 @@ class GamesController < ApplicationController
     def new
         # binding.pry
         @game = Game.new
+        # @game.consoles.build(console: 'name')
         @console = current_user.consoles.order('name ASC').uniq
     end
 
     def create
         @game = current_user.games.build(game_params)
+        binding.pry
         if @game.valid?
-            binding.pry
             @game.save
             redirect_to game_path(@game)
         else 
@@ -70,6 +71,6 @@ class GamesController < ApplicationController
         
     def game_params
         params.require(:game).permit(:title, :release_year, :genre,
-        :description, :developer, :complete, console_id:[],  consoles_attributes: [:name])
+        :description, :developer, :complete, console_ids:[], consoles_attributes: [:name])
     end
 end
