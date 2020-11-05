@@ -29,9 +29,11 @@
     <br>
 <div>
         <%= f.label :console, "On what console do you own this game?" %>
+        <br>
             <%= f.collection_select :console_ids, @console, :id, :name, {include_blank: 'Select a console'} %>
-            <%= f.fields_for :console, @game.build_console do |console_fields| %>
-            <%= console_fields.text_field :name %>
+            <br>
+            <%= f.fields_for :console, @game.build_console do |console_field| %>
+            <%= console_field.text_field :name %>
         <% end %>
 <%= f.submit %>
 <% end %>
