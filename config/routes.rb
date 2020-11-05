@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :show, :index, :edit, :update, :delete]
   end
 
+  resources :users do 
+    resources :consoles, only: [:show]
+  end
+
   resources :games 
   resources :consoles, only: [:show] 
   

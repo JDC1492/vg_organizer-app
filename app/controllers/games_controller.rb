@@ -24,7 +24,6 @@ class GamesController < ApplicationController
 
     def create
         @game = current_user.games.build(game_params)
-       
         if @game.valid? 
             @game.save
             redirect_to game_path(@game)

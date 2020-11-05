@@ -18,9 +18,9 @@
 <ul>
     <% @consoles.distinct.each do |c| %>
     <li><%= link_to c.name, console_path(c) %></li><br>
+<% end %>
 </ul>
 </div>
-<% end %>
 
 <h4><%= link_to "New Game?",  new_user_game_path(current_user) %></h4>
 
