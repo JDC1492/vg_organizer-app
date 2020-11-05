@@ -11,7 +11,8 @@ class Game < ActiveRecord::Base
         def consoles_attributes=(console_attributes)
             console_attributes.values.each do |console_attribute|
                 console = Console.find_or_create_by(console_attribute)
-                self.consoles << console
+                self.console << console
+                
             end
         end
 

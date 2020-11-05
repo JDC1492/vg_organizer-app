@@ -3,37 +3,34 @@
 </div>
 <div>
 <%= form_with model: @game, local: true  do |f| %>
-<%= f.label :title, "Game Title" %>
-<%= f.text_field :title %>
+<%= f.text_field :title, placeholder: "Game Title" %>
 </div>
-<br>
+    <br>
 <div>
-<%= f.label :release_year, "Year of Release" %>
-<%= f.text_field :release_year %>
+<%= f.text_field :release_year, placeholder: "Year of Release" %>
 </div>
-<br>
+    <br>
 <div>
-<%= f.label :description, "What's it About?" %>
-<%= f.text_area :description %>
+<%= f.text_area :description, placeholder: "What's it About?" %>
 </div>
-<br>
+    <br>
 <div>
-<%= f.label :genre, "Genre" %>
-<%= f.text_field :genre %>
+<%= f.text_field :genre, placeholder: "Genre" %>
 </div>
-<br>
+    <br>
 <div>
-<%= f.label :developer, "Developer" %>
-<%= f.text_field :developer %>
+<%= f.text_field :developer, placeholder: "Developer" %>
 </div>
-<br>
+    <br>
 <div>
 <%= f.label :complete, "Finished?" %>
 <%= f.check_box :complete %>
-<br>
+</div>
+    <br>
+<div>
         <%= f.label :console, "On what console do you own this game?" %>
             <%= f.collection_select :console_id, @console, :id, :name, {include_blank: 'Select a console'} %>
-            <%= f.fields_for :console, @game.build_console do |console_fields| %>
+            <%= f.fields_for :consoles, @game.build_console do |console_fields| %>
             <%= console_fields.text_field :name %>
         <% end %>
 <%= f.submit %>
