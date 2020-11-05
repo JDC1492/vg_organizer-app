@@ -7,7 +7,7 @@
 <h3> Your <%= current_user.games.count %> game listings: </h3>
 <div class="list">
 <ul>
-    <% @games.each do |game| %>
+    <% current_user.games.each do |game| %>
     <li><%= link_to game.title, game_path(game) %></li><br>
 </ul>
 </div>

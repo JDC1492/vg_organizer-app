@@ -1,22 +1,31 @@
-<h1>New game? Add it to the collection!!<h1>
-<%= form_with model: @game, method: :patch do |f| %>
-<%= f.label :title, "Game Title" %>
-<%= f.text_field :title %>
+<h1>Changing Something? Edit your collection!!<h1>
 <br>
-<%= f.label :release_year, "Year of Release" %>
-<%= f.text_field :release_year %>
-<br>
-<%= f.label :description, "What's it About?" %>
-<%= f.text_field :description %>
-<br>
-<%= f.label :genre, "Genre" %>
-<%= f.text_field :genre %>
-<br>
-<%= f.label :developer, "Developer" %>
-<%= f.text_field :developer %>
-<br>
+<div>
+<%= form_with model: @game, method: :patch, local: true do |f| %> 
+<%= f.text_field :title, placeholder: "Game Title" %>
+</div>
+   
+<div>
+<%= f.text_field :release_year, placeholder: "Year of Release" %>
+</div>
+    
+<div>
+<%= f.text_area :description, size: "30x10", placeholder: "What's it About?" %>
+</div>
+ 
+<div>
+<%= f.text_field :genre, placeholder: "Genre" %>
+</div>
+    
+<div>
+<%= f.text_field :developer, placeholder: "Developer" %>
+</div>
+  
+<div>
 <%= f.label :complete, "Finished?" %>
 <%= f.check_box :complete %>
-<br>
+</div>
+
 <%= f.submit %>
 <% end %>
+</div>

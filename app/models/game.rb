@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
     belongs_to :user
     belongs_to :console
+    accepts_nested_attributes_for :console
         validates :title, :release_year, :genre, :developer, presence: true
         validates :title, uniqueness: true
         validates :release_year, length: { is: 4, 
@@ -8,12 +9,11 @@ class Game < ActiveRecord::Base
 
        
         
-        def consoles_attributes=(console_attributes)
-            console_attributes.values.each do |console_attribute|
-                console = Console.find_or_create_by(console_attribute)
-                self.console << console
-                
-            end
+        def console_attributes=(console_attribute)
+            # binding.pry
+                console = Console.find_or_create_by(name:console_attribute[:name])
+                self.console = console
+                #
         end
 
 end
