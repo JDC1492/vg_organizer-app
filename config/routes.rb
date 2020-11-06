@@ -5,9 +5,7 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :show, :index, :edit, :update, :delete]
   end
 
-  resources :users do 
-    resources :consoles, only: [:show]
-  end
+  get '/users/:user_id/consoles/:console_id'
 
   resources :games 
   resources :consoles, only: [:show] 

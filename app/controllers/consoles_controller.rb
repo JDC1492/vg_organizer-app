@@ -1,7 +1,7 @@
 class ConsolesController < ApplicationController
  
     def show
-        @console = Console.find_by_id(params[:id])
+        @console = current_user.consoles.find_by_id(params[:id])
     end
 
 
