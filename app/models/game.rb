@@ -12,6 +12,10 @@ class Game < ActiveRecord::Base
             where(complete: true)
         end
 
+        def self.publisher
+            where()
+        end
+
 
         def console_attributes=(console_attribute)
             # binding.pry

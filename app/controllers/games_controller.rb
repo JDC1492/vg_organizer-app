@@ -18,7 +18,6 @@ class GamesController < ApplicationController
     
     def new
         @game = Game.new
-        # @game.consoles.build(console: 'name')
         @console = current_user.consoles.order('name ASC').uniq
     end
 
@@ -29,7 +28,7 @@ class GamesController < ApplicationController
             @game.save
             redirect_to game_path(@game)
         else 
-            render 'new'
+            render :new
         end
     end
 
@@ -41,11 +40,11 @@ class GamesController < ApplicationController
     end
 
     def update
-        if @game
+        if @game && @game.user_id == current_user.id
             @game.update(game_params) 
             binding.pry
         if @game.errors.any?
-            render 'edit'
+            render :edit
         else
             redirect_to game_path(@game)
             end
