@@ -9,15 +9,9 @@ class Game < ActiveRecord::Base
 
         scope :in_alph_order, -> {order(:title, :asc)}
         scope :fav_genre, -> (name) { where(genre: name) }
-        # scope :developer, -> (name) { where(developer: name) }
         scope :fav_dev, -> { where("COUNT(developer) ") }
-        scope :need_to_finish, ->{  where(complete: false) }
-       
-        def self.ar_completed
-            where(complete: true)
-        end
-
-
+        scope :ar_completed, -> {  where(complete: true) }
+        scope :need_to_finish, -> {  where(complete: false) }
 
         def console_attributes=(console_attribute)
             # binding.pry
