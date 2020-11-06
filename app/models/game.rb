@@ -7,9 +7,11 @@ class Game < ActiveRecord::Base
         # validates :release_year, length: { is: 4, 
         # too_short: "%{count} characters is the maximum allowed" }, numericality: { only_integer: true }
 
-        scope :genre, -> (name) { where(genre: name) }
-        scope :developer, -> (name) { where(developer: name) }
-
+        scope :in_alph_order, -> {order(:title, :asc)}
+        scope :fav_genre, -> (name) { where(genre: name) }
+        # scope :developer, -> (name) { where(developer: name) }
+        scope :fav_dev, -> { where("COUNT(developer) ") }
+        scope :need_to_finish, ->{  where(complete: false) }
        
         def self.ar_completed
             where(complete: true)

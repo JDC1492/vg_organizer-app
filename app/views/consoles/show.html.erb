@@ -1,15 +1,16 @@
 <h3><%= current_user.username.nil? ? current_user.name : current_user.username %></h3>
- <h4> - You currently own <i><%= @console.games.current_user.count %></i> games on the <%= @console.name %> </h4>
+ <h4> - You currently own <i><%= @console.games.count %></i> games on the <%= @console.name %> </h4>
     <div>
 <ol>
 <% @console.games.each do |game| %>
     <%if game.user_id == current_user.id  %>
-
-<li><%= game.title %> </li> 
+    <li><%= game.title %> -- Complete? <%= game.complete ? "Yes" : "No" %></li> 
     <% end %>
 <% end %>
-<%# possible loop needed %>
 </ol>
     </div>
 
 <h4><%= link_to "Back", user_games_path(current_user) %></h4>
+
+
+<%# possible loop needed %>

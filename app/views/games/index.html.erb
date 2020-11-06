@@ -25,6 +25,13 @@
 </ul>
 </div>
 
+<h3><u> Games That have been completed: </u></h3>
+<ul>
+<% current_user.games.ar_completed.each do |c|%>
+    <li><%= c.title %> </li><br>
+    <% end %>
+</ul>
+
 <h4><%= link_to "New Game?",  new_user_game_path(current_user) %></h4>
 
 <br><%= link_to "Log Out", destroy_user_session_path, method: :delete %> 
