@@ -1,6 +1,8 @@
-<h3><%= current_user.username %>, you currently own <%= @console.games.count %> games on the <%= @console.name %> </h3>
+<h3><%= current_user.username.nil? ? current_user.name : current_user.username %></h3>
+ you currently own <%= @console.games.count %> games on the <%= @console.name %> 
     <div>
 <ol>
+<% binding.pry %>
 <% @console.games.each do |game| %>
     <%if game.user_id == game.console_id  %>
 <li><%= game.title %> </li> 

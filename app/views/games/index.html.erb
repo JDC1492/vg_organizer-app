@@ -1,4 +1,4 @@
-<% if current_user.name.nil? %>
+<% if !current_user.name.nil? %>
     <% binding.pry %>
     <h1>Welcome, <%= current_user.name %>!</h1>
 <%  else %>
