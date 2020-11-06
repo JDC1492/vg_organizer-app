@@ -7,7 +7,7 @@
 <h3> Your <%= current_user.games.count %> game listings: </h3>
 <div class="list">
 <ul>
-    <% current_user.games.each do |game| %>
+    <% current_user.games.order('developer ASC').each do |game| %>
     <li><%= link_to game.title + " - Published By " + game.developer , game_path(game) %></li><br>
 </ul>
 </div>
@@ -16,7 +16,7 @@
 <h3> Your <%= current_user.consoles.distinct.count %> console listings: </h3>
 <div class="list">
 <ul>
-    <% @consoles.distinct.each do |c| %>
+    <% @consoles.distinct.order('name ASC').each do |c| %>
     <li><%= link_to c.name, user_console_path(current_user, c) %></li><br>
 <% end %>
 </ul>

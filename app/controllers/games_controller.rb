@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
     before_action :set_game, only: [:show, :edit, :update, :destroy]
 
     def index 
@@ -19,14 +19,12 @@ class GamesController < ApplicationController
     
     def new
         @game = Game.new
-        @console = current_user.consoles.order('name ASC').uniq
     end
 
     def create
         @game = current_user.games.build(game_params)
-        # binding.pry
-        if @game.valid? 
-            @game.save
+    #    binding.pry 
+        if @game.save
             redirect_to game_path(@game)
         else 
             render :new
@@ -34,7 +32,6 @@ class GamesController < ApplicationController
     end
 
     def edit
-        @console = current_user.consoles.order('name ASC').uniq
         if @game.user_id != current_user.id
             redirect_to games_path
         end

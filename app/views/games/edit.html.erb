@@ -1,10 +1,15 @@
 <h1 class="header">Changing Something? Edit your collection!!</h1>
 <br>
+<div class="errors">
 <% if @game.errors.any? %>
-    <h4> <%= @game.errors.full_messages.to_sentence %> </h4>
+    <h3>The game wasnt saved because:</h3>
+    <ul>
+    <li> <%= @game.errors.full_messages.to_sentence %> </li>
+    </ul>
 <% end %>
+</div>
 <div>
-<%= form_with model: @game, local: true, method: :patch do |f| %> 
+<%= form_with model: @game, method: :patch, local: true do |f| %> 
 <%= f.text_field :title, placeholder: "Game Title" %>
 </div>
    
