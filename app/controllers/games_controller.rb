@@ -2,11 +2,12 @@ class GamesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_game, only: [:show, :edit, :update, :destroy]
 
-    def index
-        @games = current_user.games
-        @consoles = current_user.consoles
+    def index 
         if !authenticate_user!
             redirect_to user_session_path
+        else
+        @games = current_user.games
+        @consoles = current_user.consoles
         end
     end
 
@@ -23,7 +24,7 @@ class GamesController < ApplicationController
 
     def create
         @game = current_user.games.build(game_params)
-        binding.pry
+        # binding.pry
         if @game.valid? 
             @game.save
             redirect_to game_path(@game)
@@ -49,7 +50,7 @@ class GamesController < ApplicationController
             redirect_to game_path(@game)
             end
         else 
-            render 'edit'
+            render :edit
         end
     end
 

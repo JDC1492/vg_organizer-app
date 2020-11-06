@@ -1,9 +1,15 @@
 <div>
-<h1>New game? Add it to the collection!!<h1>
+<h1 class="header">New game? Add it to the collection!!</h1>
 </div>
+<div class="errors">
 <% if @game.errors.any? %>
-    <h4> <%= @game.errors.full_messages.to_sentence %> </h4>
+    <h3>The game wasnt saved because:</h3>
+    <ul>
+    <li> <%= @game.errors.full_messages.to_sentence %> </li>
+    </ul>
 <% end %>
+</div>
+
 <div>
 <%= form_with model: @game, local: true  do |f| %>
 <%= f.text_field :title, placeholder: "Game Title" %>
@@ -14,7 +20,7 @@
 </div>
     <br>
 <div>
-<%= f.text_area :description, placeholder: "What's it About?" %>
+<%= f.text_area :description, size: "30x10", placeholder: "What's it About?" %>
 </div>
     <br>
 <div>
