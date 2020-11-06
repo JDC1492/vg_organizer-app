@@ -1,6 +1,9 @@
 <div>
 <h1>New game? Add it to the collection!!<h1>
 </div>
+<% if @game.errors.any? %>
+    <h4> <%= @game.errors.full_messages.to_sentence %> </h4>
+<% end %>
 <div>
 <%= form_with model: @game, local: true  do |f| %>
 <%= f.text_field :title, placeholder: "Game Title" %>

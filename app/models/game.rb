@@ -8,7 +8,11 @@ class Game < ActiveRecord::Base
         too_short: "%{count} characters is the maximum allowed" }, numericality: { only_integer: true }
 
        
-        
+        def self.ar_completed
+            where(complete: true)
+        end
+
+
         def console_attributes=(console_attribute)
             # binding.pry
                 console = Console.find_or_create_by(name:console_attribute[:name])
