@@ -11,7 +11,7 @@
 </div>
 
 <div>
-<%= form_for @game do |f| %>
+<%= form_with model: @game, local: true do |f| %>
 <%= f.text_field :title, placeholder: "Game Title" %>
 </div>
     <br>

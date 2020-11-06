@@ -20,7 +20,7 @@ class Game < ActiveRecord::Base
         def console_attributes=(console_attribute)
             # binding.pry
                 console = Console.find_or_create_by(name:console_attribute[:name])
-                self.console = console
+                self.console_id = console.id
         end
 
 end
