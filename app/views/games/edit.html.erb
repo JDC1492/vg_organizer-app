@@ -1,7 +1,7 @@
 <h1>Changing Something? Edit your collection!!<h1>
 <br>
 <div>
-<%= form_with model: @game, method: :patch, local: true do |f| %> 
+<%= form_with model: @game, local: true, method: :patch do |f| %> 
 <%= f.text_field :title, placeholder: "Game Title" %>
 </div>
    

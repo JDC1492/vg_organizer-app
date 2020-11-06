@@ -28,10 +28,10 @@
 </div>
     <br>
 <div>
-        <%= f.label :console, "Select/Create a console." %>
+        <%= f.label :console, "On what console?" %>
+</div>        
     <br>
-        <%= f.collection_select :console_id, @console, :id, :name, {include_blank: 'Select'} %>
-    <br>
+<div>
         <%= f.fields_for :console, @game.build_console do |console_field| %>
         <%= console_field.text_field :name %>
         <% end %>

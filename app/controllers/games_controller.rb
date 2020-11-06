@@ -24,6 +24,7 @@ class GamesController < ApplicationController
 
     def create
         @game = current_user.games.build(game_params)
+        binding.pry
         if @game.valid? 
             @game.save
             redirect_to game_path(@game)
@@ -74,7 +75,7 @@ private
         
     def game_params
         params.require(:game).permit(:title, :release_year, :genre,
-        :description, :developer, :complete, console_id:[], console_attributes: [ :name ])  
+        :description, :developer, :complete, console_id:[], console_attributes: [:id, :name ])  
     end
 
 end

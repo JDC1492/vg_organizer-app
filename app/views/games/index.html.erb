@@ -17,7 +17,7 @@
 <div class="list">
 <ul>
     <% @consoles.distinct.each do |c| %>
-    <li><%= link_to c.name, console_path(c) %></li><br>
+    <li><%= link_to c.name, user_console_path(current_user, c) %></li><br>
 <% end %>
 </ul>
 </div>

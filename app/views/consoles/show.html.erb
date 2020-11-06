@@ -2,7 +2,7 @@
     <div>
 <ol>
 <% @console.games.each do |game| %>
-    <%if game.console_id == @console.id  %>
+    <%if game.user_id == game.console_id  %>
 <li><%= game.title %> </li> 
     <% end %>
 <% end %>
