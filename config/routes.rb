@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :consoles
    end
 
-    resources :games 
+    resources :games
     resources :consoles, only: [:show] 
   
     get 'users/:user_id/games-complete', to: "games#complete", as: "user_completed"

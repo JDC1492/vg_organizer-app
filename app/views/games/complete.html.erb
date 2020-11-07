@@ -1,4 +1,4 @@
-<h2><%= current_user.username  %>'s Hall of Completion!</h2>
+<h2><%= current_user.username.nil? ? current_user.name : current_user.username %>'s Hall of Completion!</h2>
     <h3>“Starting something can be easy, it is finishing it that is the highest hurdle.” ― Isabella Poretsis </h3><br>
 
 <ol>

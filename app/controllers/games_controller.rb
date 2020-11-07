@@ -40,7 +40,7 @@ class GamesController < ApplicationController
     def update
         if @game && @game.user_id == current_user.id
             @game.update(game_params) 
-            binding.pry
+            # binding.pry
         if @game.errors.any?
             render :edit
         else
@@ -54,7 +54,7 @@ class GamesController < ApplicationController
    
 
     def destroy
-        if @game.user_id == current_user.id
+        if @game && @game.user_id == current_user.id
            @game.destroy 
             redirect_to games_path
         else 
@@ -76,7 +76,7 @@ private
         
     def game_params
         params.require(:game).permit(:title, :release_year, :genre,
-        :description, :developer, :complete, console_id:[], console_attributes: [:id, :name ])  
+        :description, :developer, :complete, console_id:[], console_attributes: [:id, :name])  
     end
 
 end
