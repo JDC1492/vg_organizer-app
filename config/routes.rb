@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :games 
     resources :consoles, only: [:show] 
   
-    get '/games-complete', to: "games#complete"
+    get 'users/:user_id/games-complete', to: "games#complete", as: "user_completed"
 
   root to: "games#index"
 end

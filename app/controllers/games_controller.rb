@@ -63,7 +63,7 @@ class GamesController < ApplicationController
     end
 
     def complete
-        @complete = current_user.games.ar_complete
+        @complete = current_user.games.ar_completed
     end
 
 
