@@ -1,0 +1,24 @@
+<div>
+<%= f.text_field :title, placeholder: "Game Title" %>
+</div>
+  <br> 
+<div>
+<%= f.text_field :release_year, placeholder: "Year of Release" %>
+</div>
+   <br> 
+<div>
+<%= f.text_area :description, size: "30x10", placeholder: "What's it About?" %>
+</div>
+ <br>
+<div>
+<%= f.text_field :genre, placeholder: "Genre" %>
+</div>
+  <br>  
+<div>
+<%= f.text_field :developer, placeholder: "Developer" %>
+</div>
+  <br>
+<div>
+<%= f.label :complete, "Finished?" %>
+<%= f.check_box :complete %>
+</div>

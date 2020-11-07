@@ -10,29 +10,8 @@
 </div>
 <div>
 <%= form_with model: @game, method: :patch, local: true do |f| %> 
-<%= f.text_field :title, placeholder: "Game Title" %>
-</div>
-   
-<div>
-<%= f.text_field :release_year, placeholder: "Year of Release" %>
-</div>
     
-<div>
-<%= f.text_area :description, size: "30x10", placeholder: "What's it About?" %>
-</div>
- 
-<div>
-<%= f.text_field :genre, placeholder: "Genre" %>
-</div>
-    
-<div>
-<%= f.text_field :developer, placeholder: "Developer" %>
-</div>
-  
-<div>
-<%= f.label :complete, "Finished?" %>
-<%= f.check_box :complete %>
-</div>
+    <%= render partial: 'form', locals: {game: @game, f:f} %>
 
 <%= f.submit %>
 <% end %>

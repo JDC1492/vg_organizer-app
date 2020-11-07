@@ -12,38 +12,16 @@
 
 <div>
 <%= form_with model: @game, local: true do |f| %>
-<%= f.text_field :title, placeholder: "Game Title" %>
-</div>
+
+    <%= render partial: 'form', locals: {game: @game, f:f}  %>
+    
     <br>
-<div>
-<%= f.text_field :release_year, placeholder: "Year of Release" %>
-</div>
-    <br>
-<div>
-<%= f.text_area :description, size: "30x10", placeholder: "What's it About?" %>
-</div>
-    <br>
-<div>
-<%= f.text_field :genre, placeholder: "Genre" %>
-</div>
-    <br>
-<div>
-<%= f.text_field :developer, placeholder: "Developer" %>
-</div>
-    <br>
-<div>
-<%= f.label :complete, "Finished?" %>
-<%= f.check_box :complete %>
-</div>
-    <br>
-<div>
+<div class="console">
         <%= f.label :console, "On what console?" %>
-</div>        
-    <br>
-<div>
         <%= f.fields_for :console, @game.build_console do |console_field| %>
         <%= console_field.text_field :name %>
         <% end %>
+        <br>
 <%= f.submit %>
 <% end %>
 </div>
