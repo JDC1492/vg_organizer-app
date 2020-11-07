@@ -3,7 +3,6 @@
     <h1>Welcome, <%= current_user.name %>!</h1>
 <%  else %>
     <h1>Welcome, <%= current_user.username %>!</h1>
-
 <% end %>
 <br>
 
@@ -25,10 +24,7 @@
 </ul>
 </div>
 
-<div>
-<h4><%= link_to "Hall of Fame!", user_completed_path(current_user) %></h4>
-
+<div class="footer">
 <h4><%= link_to "New Game?",  new_user_game_path(current_user) %></h4>
-
-<h4><%= link_to "Log Out", destroy_user_session_path, method: :delete %></h4> 
+<h4><%= link_to "The Hall of Completion!", user_completed_path(current_user) %></h4>
 </div>

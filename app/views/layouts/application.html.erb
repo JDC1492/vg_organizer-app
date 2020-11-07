@@ -14,5 +14,12 @@
         <p class="alert"><%= alert %></p>
         <%= stylesheet_link_tag 'style.css' %>
     <%= yield %>
+ 
+ 
+ 
+ <% if user_signed_in?  %>
+ <h4 class="footer"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></h4> 
+ <% end %>
+ 
   </body>
 </html>
