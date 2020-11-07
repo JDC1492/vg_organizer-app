@@ -13,8 +13,8 @@
     <% current_user.games.order('developer ASC').each do |game| %>
     <li><%= link_to game.title + " - Published By " + game.developer , game_path(game) %></li><br>
 </ul>
-</div>
 <% end %>
+</div>
 
 <h3> Your <%= current_user.consoles.distinct.count %> console listings: </h3>
 <div class="list">
