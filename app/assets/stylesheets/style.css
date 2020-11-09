@@ -11,3 +11,12 @@
 
     font-family: 'Trispace', sans-serif;
 }
+
+    fieldset{
+    style="width:400px"
+    }
+
+    legend{background-color: #560;
+    color: #fff;
+    padding: 3px 6px;
+    }
