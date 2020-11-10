@@ -13,10 +13,28 @@
 }
 
     fieldset{
-    style="width:400px"
+    width: 400px;
     }
 
-    legend{background-color: #560;
+    legend{background-color: #556600;
     color: #fff;
     padding: 3px 6px;
     }
+
+    * {
+        box-sizing: border-box;
+      }
+      .menu {
+        float:left;
+        width:20%;
+        text-align:center;
+      }
+
+    li{
+        padding: 3px 6px;
+    }
+
+    h1, h2{
+        text-align: left
+    }
+    

@@ -1,10 +1,14 @@
-<h2><%= current_user.username.nil? ? current_user.name : current_user.username %>'s Hall of Completion!</h2>
+<h2><%= user_check(current_user) %>'s Hall of Completion!</h2>
     <h3>“Starting something can be easy, it is finishing it that is the highest hurdle.” ― Isabella Poretsis </h3><br>
 
+<fieldset>
 <ol>
 <% @complete.each do |entry| %>
 <li><%= entry.title %></li>
 <% end %>
 </ol>
+</fieldset>
 
 <p><i>Remember to hydrate during gaming sessions and take breaks in between! </i></p>
+
+<h4 class="footer"><%= link_to "Back", user_games_path(current_user) %></h4>

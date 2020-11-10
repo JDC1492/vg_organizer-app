@@ -1,16 +1,11 @@
-<% if !current_user.name.nil? %>
-    <% binding.pry %>
-    <h1>Welcome, <%= current_user.name %>!</h1>
-<%  else %>
-    <h1>Welcome, <%= current_user.username %>!</h1>
-<% end %>
+<h2><%= user_check(current_user) + "!" %></h2>
 <br>
 
 <h3> Your <%= current_user.games.count %> game listings: </h3>
 <div class="list">
 <ul>
     <% current_user.games.order('developer ASC').each do |game| %>
-    <li><%= link_to game.title + " - Published By " + game.developer , user_game_path(current_user, game) %></li><br>
+    <li><%= link_to full_link(game) , user_game_path(current_user, game) %></li><br>
 </ul>
 <% end %>
 </div>

@@ -78,5 +78,6 @@ private
         params.require(:game).permit(:title, :release_year, :genre,
         :description, :developer, :complete, console_id:[], console_attributes: [:id, :name])  
     end
+    
 
 end
