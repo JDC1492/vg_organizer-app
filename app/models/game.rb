@@ -4,14 +4,16 @@ class Game < ActiveRecord::Base
     # accepts_nested_attributes_for :console
         validates :title, :release_year, :genre, :developer, presence: true
         validates :title, uniqueness: true
-        validates :release_year, length: { is: 4, 
-        too_short: "%{count} characters is the maximum allowed" }, numericality: { only_integer: true }
+        validates :release_year, length: { is: 4, too_short: "%{count} characters is the maximum allowed" }, numericality: { only_integer: true }
 
-        # scope :in_alph_order, -> {order(:title, :asc)}
-        # scope :fav_genre, -> (name) { where(genre: name) }
-        # scope :dev_count, -> { where(count(:developer) = ?, limit 1, :asc) }
         scope :ar_completed, -> {  where(complete: true) }
-        # scope :need_to_finish, -> {  where(complete: false) }
+        
+        
+        def self.search(params)
+                where("LOWER(title) LIKE ?", "%#{params}%")
+        end
+
+    
                 
         
         #custom nested attr. writer, also added to my strong params.

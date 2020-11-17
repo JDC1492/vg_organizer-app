@@ -6,13 +6,15 @@ class GamesController < ApplicationController
         # binding.pry
         if !authenticate_user!
             redirect_to user_session_path
-        elsif game_params[:search]
-            @games = Game.where('title LIKE ?')
-        else
-        @games = current_user.games
-        @consoles = current_user.consoles
+        elsif
+            @games = current_user.games
+            @consoles = current_user.consoles
+        end
+        if params[:search] #if there is a search
+            @games = current_user.games.search(params[:search].downcase)
         end
     end
+    
 
     def show
         if @game.user_id != current_user.id
@@ -83,6 +85,4 @@ private
         params.require(:game).permit(:search, :title, :release_year, :genre,
         :description, :developer, :complete, console_id:[], console_attributes: [:name])
     end
-    
-
 end
