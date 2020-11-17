@@ -4,11 +4,11 @@
 }
 
 .list{
-    font-family: 'Trispace', sans-serif;
+    font-family: 'Aldrich', sans-serif;
+
 }
 
 .footer{
-
     font-family: 'Trispace', sans-serif;
 }
 
@@ -31,10 +31,66 @@
       }
 
     li{
-        padding: 3px 6px;
+        padding: 3px 3px;
     }
 
-    h1, h2{
-        text-align: left
+    h1, h2, h3{
+        font-family: 'Trispace', sans-serif;
+        text-align: center
     }
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+.header {
+  grid-area: header;
+  background-color: #dc851f;
+  padding: 30px;
+  text-align: center;
+  font-size: 33px;
+}
+
+/* The grid container */
+.grid-container {
+  display: grid;
+  grid-template-areas: 
+    'header header header header header header' 
+    'left middle middle middle middle right' 
+    'footer footer footer footer footer footer';
+  /* grid-column-gap: 10px; - if you want gap between the columns */
+} 
+
+.left,
+.middle,
+.right {
+  padding: 10px;
+  height: 300px; 
+}
+
+/* Style the left column */
+.left {
+  grid-area: left;
+}
+
+/* Style the middle column */
+
+
+/* Style the right column */
+.right {
+  grid-area: right;
+}
+
+/* Style the footer */
+.footer {
+  grid-area: footer;
+  background-color: #636666;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+}
     

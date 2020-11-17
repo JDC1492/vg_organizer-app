@@ -2,7 +2,7 @@ module GameHelper
 
     def full_link(game)
         if game
-    game.title + " - Published By " + game.developer
+    game.title + " - Developed By " + game.developer
         end
     end
 

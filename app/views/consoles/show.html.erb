@@ -1,4 +1,4 @@
-<h3><%= current_user.username.nil? ? current_user.name : current_user.username %></h3>
+<h2 class="first"><%= user_check(current_user)  %></h2>
  <h4> - You currently own <%= current_user.games.count > 1 ? "these games" : "this game" %> on the <%= @console.name %> </h4>
     <div>
 <ol>

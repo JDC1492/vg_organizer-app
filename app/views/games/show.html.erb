@@ -1,15 +1,17 @@
-<h2>You have <%= @game.title %> on the <%= @game.console.name %>.  This game was developed by <%= @game.developer %>.</h2><br>
-<fieldset style="width:400px">
+<div class="container">
+<h3 class="header">You own a copy of <%= @game.title %> on the <%= @game.console.name %>.  This game was developed by <%= @game.developer %>.</h3><br>
+<fieldset class="card-panel teal lighten" >
 <legend>What's <%= @game.title %> About?</legend>
-<p class="desc"><%= @game.description %></p>
+<p><%= @game.description %></p>
 </fieldset>
 
 <h4>Release Year:</h4> <p> - <%= @game.release_year %> </p>
 <h4>Genre:</h4> <p> - <%= @game.genre %>. </p>
 <h4>Is it Complete?</h4> <p> - <%= @game.complete ? "Yes" : "No" %> </p>
 <br>
-
  <%= render partial: 'nav' %>
+</div>
+
 
 
 

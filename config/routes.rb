@@ -6,11 +6,11 @@ Rails.application.routes.draw do
     end
 
     resources :users do
-      resources :consoles
+      resources :consoles, only: [:show]
    end
 
     resources :games
-    resources :consoles, only: [:show] 
+    # resources :consoles, only: [:show]
   
     get 'users/:user_id/games-complete', to: "games#complete", as: "user_completed"
 

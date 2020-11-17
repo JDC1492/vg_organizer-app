@@ -8,7 +8,7 @@
     </ul>
 <% end %>
 </div>
-<div>
+<div class="container">
 <%= form_with model: @game, method: :patch, local: true do |f| %> 
     
     <%= render partial: 'form', locals: {game: @game, f:f} %>

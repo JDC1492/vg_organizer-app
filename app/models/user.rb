@@ -1,7 +1,11 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
     has_many :games
     has_many :consoles, through: :games
       validates :username, uniqueness: true
+      validates :username, presence: true
+      validates :email, uniqueness: true
       validates :email, presence: true
       validates_confirmation_of :password
 
@@ -15,18 +19,8 @@ class User < ApplicationRecord
             user.username = auth.info.nickname
             user.uid = auth.uid
             user.email = auth.info.email
-            user.password = Devise.friendly_token[0,20]
+            user.password = Devise.friendly_token[0,20]  #set pword to a random string so github users can log in to the application
           end
         end
 
-
-        # def console_attributes=(console_attributes)
-        #   console_attributes.values.each do |console_attribute|
-        #       console = Console.find_or_create_by(console_attribute)
-        #       self.consoles << console
-        #   end
-        #   end
-
 end
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

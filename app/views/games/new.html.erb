@@ -16,7 +16,7 @@
     <%= render partial: 'form', locals: {game: @game, f:f}  %>
     
     <br>
-<div class="console">
+<div>
         <%= f.label :console, "On what console?" %>
         <%= f.fields_for :console, @game.build_console do |console_field| %>
         <%= console_field.text_field :name, placeholder: "Please Enter a Console" %>
@@ -25,6 +25,8 @@
 <%= f.submit %>
 <% end %>
 </div>
+
+ <h4 class="footer"><%= link_to "Back", user_games_path(current_user) %></h4>
 
 
 

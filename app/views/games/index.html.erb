@@ -1,17 +1,24 @@
-<h2><%= user_check(current_user) + "!" %></h2>
+<div class="container">
+<h2 class="header">Welcome, <%= user_check(current_user)%>!</h2>
 <br>
 
+<h3>Search your games!</h3>
+<%= form_tag ('/games') do %>
+<%= label_tag "Search your collection:" %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "search games", name: nil %>
+<% end %>
+
+
 <h3> Your <%= current_user.games.count %> game listings: </h3>
-<div class="list">
 <ul>
     <% current_user.games.order('developer ASC').each do |game| %>
     <li><%= link_to full_link(game) , user_game_path(current_user, game) %></li><br>
 </ul>
 <% end %>
-</div>
+
 
 <h3> Your <%= current_user.consoles.distinct.count %> console listings: </h3>
-<div class="list">
 <ul>
     <% @consoles.distinct.order('name ASC').each do |c| %>
     <li><%= link_to c.name, user_console_path(current_user, c) %></li><br>
@@ -20,6 +27,6 @@
 </div>
 
 <div class="footer">
-<h4><%= link_to "New Game?",  new_user_game_path(current_user) %></h4>
+<h4><%= link_to "New Game?", new_user_game_path(current_user) %></h4>
 <h4><%= link_to "The Hall of Completion!", user_completed_path(current_user) %></h4>
 </div>
