@@ -8,10 +8,12 @@ class Game < ActiveRecord::Base
 
         scope :ar_completed, -> {  where(complete: true) }
         
-        
+        #method used to query the database
         def self.search(params)
+            # making use of LOWER to lowercase the titles of the selected games, and the ? placeholder for what the params may be
                 where("LOWER(title) LIKE ?", "%#{params}%")
         end
+        
 
     
                 

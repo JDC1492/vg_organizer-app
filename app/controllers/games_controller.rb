@@ -8,10 +8,12 @@ class GamesController < ApplicationController
             redirect_to user_session_path
         elsif
             @games = current_user.games
+            binding.pry
             @consoles = current_user.consoles
         end
-        if params[:search] #if there is a search
+        if params[:search]  #if there is a search within the params hash
             @games = current_user.games.search(params[:search].downcase)
+                            #set games to the current users games and give the results that come close to the combination of letters
         end
     end
     
