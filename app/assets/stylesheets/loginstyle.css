@@ -1,4 +1,16 @@
+body {
+  background-color: cornflowerblue;
+}
 .card {
+  margin: auto;
   text-align: center;
-  /* display: inline-block; */
+  outline: 5px solid black;
+  border-radius: 12px;
+  width: 20%;
+  background-color: cornsilk;
+}
+.actions input[type="submit"] {
+  background-color: coral;
+  font-size: 12px;
+  border-radius: 12px;
 }
