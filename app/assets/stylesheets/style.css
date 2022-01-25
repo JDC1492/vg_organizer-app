@@ -23,14 +23,14 @@ section > * {
 }
 
 .right {
-  background-color: rgb(143, 143, 143);
+  background-color: rgb(254, 95, 85);
   text-align: center;
   border: 2px solid white;
   border-radius: 10px;
 }
 
 .left {
-  background-color: aquamarine;
+  background-color: rgb(122, 158, 159);
   text-align: center;
   border: 2px solid white;
   border-radius: 10px;

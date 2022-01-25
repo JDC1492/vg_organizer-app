@@ -1,5 +1,8 @@
 body {
-  background-color: rgb(98, 121, 165);
+  background-color: #4f6367;
+  background-image: url("sigmund-By-tZImt0Ms-unsplash.jpg");
+  background-blend-mode: color-dodge;
+  color: rgb(238, 245, 219);
 }
 .card {
   margin: auto;
