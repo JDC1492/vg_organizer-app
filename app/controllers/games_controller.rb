@@ -8,7 +8,7 @@ class GamesController < ApplicationController
             redirect_to user_session_path
         elsif
             @games = current_user.games
-            binding.pry
+            # binding.pry
             @consoles = current_user.consoles
         end
         if params[:search]  #if there is a search within the params hash
