@@ -5,7 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Trispace:wght@200&family=Aldrich&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap" rel="stylesheet">
+
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'loginstyle.css' %>
@@ -20,9 +21,7 @@
  
  
  
- <% if user_signed_in?  %>
- <h4 class="footer"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></h4> 
- <% end %>
+
  
   </body>
 </html>

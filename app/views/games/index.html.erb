@@ -1,33 +1,41 @@
 <div class="container">
-<h2 class="header">Welcome, <%= user_check(current_user)%>!</h2>
-<br>
+    <h2 class="header">Welcome, <%= user_check(current_user)%>!</h2>
+    <br>
 
-<h3>Search your games!</h3>
-<%= form_tag("/games", method: "get") do %> 
-<!--Used a url of games since i wanted to stay on the index page, changed the method to get since form_tag's method is POST by default-->
-<%= label_tag(:search, "Search your collection:") %>
-<%= text_field_tag :search %>
-<!-- naming the text field :search which will be a key in the params has that will be used for the search method-->
-<%= submit_tag "Search"%>
-<% end %>
+    <h3>Search your games!</h3>
+    <%= form_tag("/games", method: "get") do %> 
+    <!--Used a url of games since i wanted to stay on the index page, changed the method to get since form_tag's method is POST by default-->
+        <%= label_tag(:search, "Search your collection:") %>
+        <%= text_field_tag :search %>
+    <!-- naming the text field :search which will be a key in the params has that will be used for the search method-->
+        <%= submit_tag "Search"%>
+    <% end %>
+    <section>
+        <div class='div left'>
+            <h3> Your <%= @games.count %> game listings: </h3>
+            <ul>
+                <% @games.order('developer ASC').each do |game| %>
+                    <li><%= link_to full_link(game) , user_game_path(current_user, game) %></li><br>
+                <% end %>
+            </ul>
+        </div>
 
-<h3> Your <%= @games.count %> game listings: </h3>
-<ul>
-    <% @games.order('developer ASC').each do |game| %>
-    <li><%= link_to full_link(game) , user_game_path(current_user, game) %></li><br>
-</ul>
-<% end %>
-
-
-<h3> Your <%= @consoles.distinct.count %> console listings: </h3>
-<ul>
-    <% @consoles.distinct.order('name ASC').each do |c| %>
-    <li><%= link_to c.name, user_console_path(current_user, c) %></li><br>
-<% end %>
-</ul>
+        <div class='div right'>
+            <h3> Your <%= @consoles.distinct.count %> console listings: </h3>
+            <ul>
+            <% @consoles.distinct.order('name ASC').each do |c| %>
+                <li><%= link_to c.name, user_console_path(current_user, c) %></li><br>
+            <% end %>
+            </ul>
+        </div>
+    </section>
 </div>
+
 
 <div class="footer">
 <h4><%= link_to "New Game?", new_user_game_path(current_user) %></h4>
 <h4><%= link_to "The Hall of Completion!", user_completed_path(current_user) %></h4>
+ <% if user_signed_in?  %>
+ <h4 class="footer"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></h4> 
+ <% end %>
 </div>

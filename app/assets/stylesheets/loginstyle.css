@@ -1,5 +1,5 @@
 body {
-  background-color: cornflowerblue;
+  background-color: rgb(98, 121, 165);
 }
 .card {
   margin: auto;
@@ -13,4 +13,5 @@ body {
   background-color: coral;
   font-size: 12px;
   border-radius: 12px;
+  font-family: dosis;
 }
